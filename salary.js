@@ -1,5 +1,5 @@
 let allEmployees = [];  //global variable to hold entire array of employee info
-let monthlyBudget = 0;
+let monthlyCost = 0;
 
 $(document).ready(readyNow);
 
@@ -30,7 +30,7 @@ function addEmployee() {
     }
     //add new employee to array holding all employees
     allEmployees.push(newEmployee);
-    calculateMonthlyBudget();
+    calculateMonthlyCost();
     render();
 }
 
@@ -73,16 +73,16 @@ function render() {
 }   
 
 //calculate monthly cost for all employees
-function calculateMonthlyBudget() {
+function calculateMonthlyCost() {
     //console.log('in monthlyBudget()');
     //reset budget
-    monthlyBudget = 0;
+    monthlyCost = 0;
     //loop through all employees and add up their salaries
-    for (let budget of allEmployees) {
-        monthlyBudget += Number(budget.salary);
+    for (let cost of allEmployees) {
+        monthlyCost += Number(cost.salary);
     }
-    monthlyBudget = monthlyBudget / 12; //change yearly budget to monthly
-    console.log('monthly budget:',monthlyBudget);
+    monthlyCost = monthlyCost / 12; //change yearly budget to monthly
+    console.log('monthly budget:',monthlyCost);
 }
 
 //remove employee info in row that delete button was pressed
