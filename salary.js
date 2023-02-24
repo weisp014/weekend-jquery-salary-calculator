@@ -1,4 +1,5 @@
 let allEmployees = [];  //global variable to hold entire array of employee info
+let monthlyBudget = 0;
 
 $(document).ready(readyNow);
 
@@ -6,6 +7,8 @@ function readyNow() {
     //console.log("DOM loaded");
     //add listener for submit button
     $('#submitEmployee').on('click', addEmployee);
+    //add listener for delete button
+    $('#tableOfEmployees').on('click', '.deleteBtn', removeEmployee);
 }
 
 function addEmployee() {
@@ -27,6 +30,7 @@ function addEmployee() {
     }
     //add new employee to array holding all employees
     allEmployees.push(newEmployee);
+    calculateMonthlyBudget();
     render();
 }
 
@@ -39,7 +43,7 @@ function render() {
     $('#idNumber').val('');
     $('#jobTitle').val('');
     $('#annualSalary').val('');
-    
+
     //add table headers back in
     $('#tableOfEmployees').append(`
     <tr>
@@ -67,3 +71,21 @@ function render() {
         `);
     }
 }   
+
+//calculate monthly cost for all employees
+function calculateMonthlyBudget() {
+    //console.log('in monthlyBudget()');
+    //reset budget
+    monthlyBudget = 0;
+    //loop through all employees and add up their salaries
+    for (let budget of allEmployees) {
+        monthlyBudget += Number(budget.salary);
+    }
+    monthlyBudget = monthlyBudget / 12; //change yearly budget to monthly
+    console.log('monthly budget:',monthlyBudget);
+}
+
+//remove employee info in row that delete button was pressed
+function removeEmployee() {
+
+}
