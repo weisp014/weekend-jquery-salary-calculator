@@ -33,6 +33,13 @@ function addEmployee() {
 function render() {
     //update the DOM and clear current table
     $('#tableOfEmployees').empty();
+    //clear input fields
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#idNumber').val('');
+    $('#jobTitle').val('');
+    $('#annualSalary').val('');
+    
     //add table headers back in
     $('#tableOfEmployees').append(`
     <tr>
@@ -41,12 +48,13 @@ function render() {
         <th>ID</th>
         <th>Title</th>
         <th>Salary</th>
+        <th></th>
     </tr>
     `);
 
     //update DOM with all employees
     for (let employee of allEmployees) {
-        console.log('employee info', employee);
+        //console.log('employee info', employee);
         $('#tableOfEmployees').append(`
         <tr>
             <td>${employee.fName}</td>
@@ -54,6 +62,7 @@ function render() {
             <td>${employee.ID}</td>
             <td>${employee.title}</td>
             <td>${employee.salary}</td>
+            <td><button class='deleteBtn'>Delete</button></td>
         </tr>
         `);
     }
