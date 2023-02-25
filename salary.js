@@ -70,7 +70,10 @@ function render() {
         </tr>
         `);
     }
-}   
+
+    //update DOM with new total monthly cost
+    $('#totalCost').html(`$${Math.round(monthlyCost)}`);
+}
 
 //calculate monthly cost for all employees
 function calculateMonthlyCost() {
@@ -82,12 +85,15 @@ function calculateMonthlyCost() {
         monthlyCost += Number(cost.salary);
     }
     monthlyCost = monthlyCost / 12; //change yearly budget to monthly
-    console.log('monthly budget:',monthlyCost);
+    //console.log('monthly budget:', monthlyCost);
+    if (monthlyCost > 20000) {
+        
+    }
 }
 
 //TO-DO:remove employee info in row that delete button was pressed
 function removeEmployee() {
-    console.log('in removeEmployee');
+    //console.log('in removeEmployee');
 
     //new array to replace allEmployees
     let updatedEmployees = [];
@@ -100,5 +106,7 @@ function removeEmployee() {
         }
     }
     allEmployees = updatedEmployees;
+    //update montly cost after employee removed
+    calculateMonthlyCost();
     render();
 }
