@@ -1,0 +1,12 @@
+table {
+    border: 2px solid;
+    width: 100%;
+}
+
+td {
+    border: 2px solid;
+}
+
+.lot-of-money {
+    background-color: red;
+}

@@ -73,6 +73,14 @@ function render() {
 
     //update DOM with new total monthly cost
     $('#totalCost').html(`$${Math.round(monthlyCost)}`);
+
+    //Render red background if cost greater than $20,000
+    if (monthlyCost > 20000) {
+        $('#totalCost').addClass('lot-of-money');
+    }
+    else {
+        $('#totalCost').removeClass('lot-of-money');
+    }
 }
 
 //calculate monthly cost for all employees
@@ -87,7 +95,7 @@ function calculateMonthlyCost() {
     monthlyCost = monthlyCost / 12; //change yearly budget to monthly
     //console.log('monthly budget:', monthlyCost);
     if (monthlyCost > 20000) {
-        
+
     }
 }
 
