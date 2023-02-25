@@ -85,7 +85,20 @@ function calculateMonthlyCost() {
     console.log('monthly budget:',monthlyCost);
 }
 
-//remove employee info in row that delete button was pressed
+//TO-DO:remove employee info in row that delete button was pressed
 function removeEmployee() {
+    console.log('in removeEmployee');
 
+    //new array to replace allEmployees
+    let updatedEmployees = [];
+    //save first name text from employee being deleted
+    let employeeToRemove = $(this).parent().siblings().first().text();
+    //check for employees matching that first name and add them to new array if they don't match
+    for (let employee of allEmployees) {
+        if (employee.fName !== employeeToRemove) {
+            updatedEmployees.push(employee);
+        }
+    }
+    allEmployees = updatedEmployees;
+    render();
 }
