@@ -1,10 +1,31 @@
 table {
     border: 2px solid;
+    border-collapse: collapse;
     width: 100%;
+}
+
+th {
+    background-color: gray;
+}
+
+tr:hover {
+    background-color: pink;
 }
 
 td {
     border: 2px solid;
+    height: 50px;
+    text-align: center;
+}
+
+input {
+    width: 25%;
+}
+
+#submitEmployee {
+    background-color: green;
+    padding: 10px 15px;
+    margin-top: 15px;
 }
 
 .lot-of-money {
